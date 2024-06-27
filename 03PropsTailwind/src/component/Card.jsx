@@ -1,28 +1,25 @@
 import React from 'react'
 
-function Card() {
+function Card(props) {
   return (
     <>
-      <div class="w-[300px] rounded-md border">
-        <img
-          src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=60"
-          alt="Laptop"
-          class="h-[200px] w-full rounded-md object-cover"
-        />
-        <div class="p-4">
-          <h1 class="text-lg font-semibold">About Macbook</h1>
-          <p class="mt-3 text-sm text-gray-600">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi,
-            debitis?
-          </p>
-          <button
-            type="button"
-            class="mt-4 rounded-sm bg-black px-2.5 py-1 text-[10px] font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-          >
-            Read
-          </button>
-        </div>
-      </div>
+      <div class="relative h-[400px] w-[300px] rounded-md">
+  <img
+    src="https://images.unsplash.com/photo-1546961329-78bef0414d7c?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHVzZXJ8ZW58MHx8MHx8&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=60"
+    alt="AirMax Pro"
+    class="z-0 h-full w-full rounded-md object-cover"
+  />
+  <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+  <div class="absolute bottom-4 left-4 text-left">
+    <h1 class="text-lg font-semibold text-white">{props.profileName}</h1>
+    <p class="mt-2 text-sm text-gray-300">{props.profileDetalis}
+    </p>
+    <button class="mt-2 inline-flex cursor-pointer items-center text-sm font-semibold text-white">
+      View Profile →
+    </button>
+  </div>
+</div>
+
     </>
   )
 }
