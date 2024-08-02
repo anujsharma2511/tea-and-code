@@ -71,16 +71,20 @@ export default function App() {
 
   useEffect(
     function () {
+      const controller =  new AbortController();
       setLoading(true);
       async function getMovies() {
         const res = await fetch(
-          `http://www.omdbapi.com/?i=tt3896198&apikey=${KEY}&s=${query}`
+          `http://www.omdbapi.com/?i=tt3896198&apikey=${KEY}&s=${query}`,{signal:controller.signal}
         );
         const data = await res.json();
         setMovies(data.Search);
         setLoading(false);
       }
       getMovies();
+      return function(){
+        controller.abort();
+      }
     },
     [query]
   );
